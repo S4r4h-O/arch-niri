@@ -1,8 +1,10 @@
 # Install paru (obviously)
 
+set -e
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-source source "$SCRIPT_DIR/global_functions.sh"
+source "$SCRIPT_DIR/global_functions.sh"
 
 OK="$(tput setaf 2)[OK]$(tput sgr0)"
 ERROR="$(tput setaf 1)[ERROR]$(tput sgr0)"
@@ -28,6 +30,10 @@ fi
 if command -v paru >/dev/null 2>&1; then
   printf "${INFO} paru already installed\n"
   exit 0
+fi
+
+if ! command -v rustup >/dev/null 2>&1; then
+  install_package_pacman "rustup"
 fi
 
 if ! rustup default stable; then
