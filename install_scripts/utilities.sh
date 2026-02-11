@@ -20,8 +20,8 @@ RESET="$(tput sgr0)"
 # zinit, the zsh plugins manager
 # manual install (described in https://github.com/zdharma-continuum/zinit)
 
-export XDG_CONFIG_HOME="$HOME"
-export XDG_DATA_HOME="$HOME/.local/share"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
 if ! cat <<'ZINIT_EOF' >>~/.zshrc; then
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -42,22 +42,30 @@ if ! is_installed tmux; then
   install_package_pacman "tmux"
 fi
 
-if [ ! -d "$XDG_CONFIG_HOME/tmux" ]; then
-  mkdir -p "$XDG_CONFIG_HOME/tmux"
-else
-  printf "${ERROR} ${WARNING}${RESET}\n"
-  exit 1
+mkdir -p "$XDG_CONFIG_HOME/tmux"
+
+TMUX_DATA_DIR="$XDG_DATA_HOME/tmux"
+
+if [ -d "$TMUX_DATA_DIR" ]; then
+  rm -rf "$TMUX_DATA_DIR"
 fi
 
-if git clone --single-branch https://github.com/gpakosz/.tmux.git "$XDG_DATA_HOME/tmux"; then
-  if [ -f "$XDG_DATA_HOME/tmux/oh-my-tmux/.tmux.conf" ]; then
-    ln -s "$XDG_DATA_HOME/tmux/oh-my-tmux/.tmux.conf" "$HOME/.config/tmux/tmux.conf"
-    cp "$XDG_DATA_HOME/tmux/oh-my-tmux/.tmux.conf.local" "$HOME/.config/tmux/tmux.conf.local"
+if git clone --single-branch https://github.com/gpakosz/.tmux.git "$TMUX_DATA_DIR"; then
+
+  if [ -f "$TMUX_DATA_DIR/.tmux.conf" ]; then
+
+    ln -sf "$TMUX_DATA_DIR/.tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+
+    if [ ! -f "$XDG_CONFIG_HOME/tmux/tmux.conf.local" ]; then
+      cp "$TMUX_DATA_DIR/.tmux.conf.local" "$XDG_CONFIG_HOME/tmux/tmux.conf.local"
+    fi
+
+    printf "${OK} Tmux configuration installed successfully\n"
   else
-    echo "${ERROR} ${WARNING}Failed to caopy .tmux.conf or file doesn't exist${RESET}\n"
+    printf "${ERROR} ${WARNING} .tmux.conf not found in cloned directory${RESET}\n"
     exit 1
   fi
 else
-  echo "${ERROR} ${WARNING}Failed to clone oh-my-tmux configuration${RESET}\n"
+  printf "${ERROR} ${WARNING} Failed to clone tmux configuration${RESET}\n"
   exit 1
 fi
