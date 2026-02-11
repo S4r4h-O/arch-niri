@@ -30,6 +30,12 @@ if command -v paru; then
   exit 0
 fi
 
+if ! rustup default stable; then
+  printf "${ERROR} ${WARNING}Failed to install rust tools, try to run\n\
+  ${ORANGE}rustup default stable${RESET} manually and restart the install script${RESET}\n"
+  exit 1
+fi
+
 if ! is_installed "git"; then
   printf "${INFO} ${YELLOW}Git not installed, installing now!${RESET}"
   install_package_pacman "git"
