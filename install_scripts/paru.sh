@@ -25,7 +25,7 @@ if [[ ! -d "$install_logs" ]]; then
   mkdir -p "$install_logs"
 fi
 
-if command -v paru; then
+if command -v paru >/dev/null 2>&1; then
   printf "${INFO} paru already installed\n"
   exit 0
 fi
