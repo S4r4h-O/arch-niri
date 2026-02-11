@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-source ./global_functions.sh
+SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+
+source "$SCRIPT_DIR/global_functions.sh"
 
 OK="$(tput setaf 2)[OK]$(tput sgr0)"
 ERROR="$(tput setaf 1)[ERROR]$(tput sgr0)"
