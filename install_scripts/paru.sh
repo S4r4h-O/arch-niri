@@ -68,8 +68,20 @@ cd "$TEMP_DIR/paru" || {
   exit 1
 }
 
-if ! makepkg -si --noconfirm 2>&1 | tee -a "$install_logs/logs.txt"; then
+if ! makepkg -s --noconfirm 2>&1 | tee -a "$install_logs/logs.txt"; then
   printf "${ERROR} ${WARNING}Failed to build/install paru${RESET}\n"
+  exit 1
+fi
+
+pkg_file=$(ls ./*.pkg.tar.zst 2>/dev/null | head -n 1)
+
+if [[ -z "$pkg_file" ]]; then
+  printf "${ERROR} ${WARNING}Package file not found after build${RESET}\n"
+  exit 1
+fi
+
+if ! sudo pacman -U --noconfirm "$pkg_file" 2>&1 | tee -a "$install_logs/logs.txt"; then
+  printf "${ERROR} ${WARNING}Failed to install paru package${RESET}\n"
   exit 1
 fi
 
