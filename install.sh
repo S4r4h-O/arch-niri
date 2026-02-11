@@ -12,8 +12,8 @@ INSTALL_SCRIPTS_DIR="$SCRIPT_DIR/install_scripts"
 
 install_logs="$HOME/.local/state/"
 
-if [[ ! -d install_logs ]]; then
-  mkdir -p install_logs
+if [[ ! -d "$install_logs" ]]; then
+  mkdir -p "$install_logs"
 fi
 
 for pkg_file in ./packages/*.packages; do
@@ -26,10 +26,10 @@ execute_script() {
   local script=$1
   local script_path="$INSTALL_SCRIPTS_DIR/$1"
 
-  if [ -f "script_path" ]; then
+  if [ -f "$script_path" ]; then
     chmod +x "$script_path"
     if [ -x "$script_path" ]; then
-      env "$script_path"
+      "$script_path"
     else
       printf "Failed to make script '$script' executable :(\n" | tee -a "$install_logs/logs.txt"
     fi
