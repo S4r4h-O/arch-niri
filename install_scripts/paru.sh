@@ -1,6 +1,6 @@
 # Install paru (obviously)
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -58,7 +58,7 @@ fi
 TEMP_DIR=$(mktemp -d)
 trap "rm -rf '$TEMP_DIR'" EXIT
 
-if ! git clone https://aur.archlinux.org/paru.git "$TEMP_DIR/paru"; then
+if ! git clone https://aur.archlinux.org/paru-bin.git "$TEMP_DIR/paru"; then
   printf "${ERROR} ${WARNING}Failed to clone paru repository${RESET}\n"
   exit 1
 fi
