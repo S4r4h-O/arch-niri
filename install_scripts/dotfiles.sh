@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 TEMP_DIR=$(mktemp -d)
+trap "rm -rf '$TEMP_DIR'" EXIT
 
 if ! git clone https://github.com/S4r4h-O/dotfiles.git "$TEMP_DIR"/dots; then
   printf "${ERROR} ${WARNING}Failed to clone dotfiles repository${RESET}\n"
@@ -11,7 +12,7 @@ if [[ ! -d "$HOME/Pictures/Wallpapers/" ]]; then
   mkdir -p "$HOME/Pictures/Wallpapers/"
 fi
 
-if ! cp -r "$TEMP_DIR/dots" ~/.config; then
+if ! cp -r "$TEMP_DIR/dots/." ~/.config; then
   printf "${ERROR} ${WARNING}Failed to copy the dotfiles to ~/.config${RESET}\n"
   exit 1
 fi
