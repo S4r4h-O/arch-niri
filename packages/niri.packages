@@ -1,0 +1,13 @@
+xdg-desktop-portal-gtk
+xdg-desktop-portal-gnome
+gnome-keyring
+xwayland-satellite
+xorg-xwayland
+wayland
+wayland-protocols
+swayidle
+swaybg
+swaylock
+waybar
+niri
+ly
