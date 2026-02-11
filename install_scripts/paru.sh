@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-source ./global_functions.sh
+source source "$SCRIPT_DIR/global_functions.sh"
 
 OK="$(tput setaf 2)[OK]$(tput sgr0)"
 ERROR="$(tput setaf 1)[ERROR]$(tput sgr0)"
@@ -21,8 +21,8 @@ RESET="$(tput sgr0)"
 
 install_logs="$HOME/.local/state/"
 
-if [[ ! -d install_logs ]]; then
-  mkdir -p install_logs
+if [[ ! -d "$install_logs" ]]; then
+  mkdir -p "$install_logs"
 fi
 
 if command -v paru; then
@@ -59,12 +59,12 @@ fi
 
 cd "$TEMP_DIR/paru" || {
   printf "${ERROR} ${WARNING}Failed to enter paru directory${RESET}\n"
-  extit 1
+  exit 1
 }
 
 if ! makepkg -si --noconfirm 2>&1 | tee -a "$install_logs/logs.txt"; then
   printf "${ERROR} ${WARNING}Failed to build/install paru${RESET}\n"
-  extit 1
+  exit 1
 fi
 
 printf "${OK} paru installed successfully${RESET}\n"
@@ -88,6 +88,6 @@ aur_pkgs=(
   wlogout
 )
 
-for pkg in aur_pkgs[@]; do
+for pkg in "${aur_pkgs[@]}"; do
   install_aur_package "$pkg"
 done
