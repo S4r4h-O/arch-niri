@@ -75,7 +75,7 @@ install_package_pacman() {
 }
 
 # I prefer  paru, so I won't check if yay is installed
-intall_aur_package() {
+install_aur_package() {
   # first check if paru is instal
   if ! is_installed "paru"; then
     printf "\n${ERROR} Paru is not installed! :p${RESET}\n"
