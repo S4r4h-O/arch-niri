@@ -27,6 +27,8 @@ if [[ ! -d "$install_logs" ]]; then
   mkdir -p "$install_logs"
 fi
 
+printf "${INFO} Trying to install paru.${RESET}\n"
+
 if command -v paru >/dev/null 2>&1; then
   printf "${INFO} paru already installed\n"
   exit 0
@@ -58,7 +60,7 @@ fi
 TEMP_DIR=$(mktemp -d)
 trap "rm -rf '$TEMP_DIR'" EXIT
 
-if ! git clone https://aur.archlinux.org/paru-bin.git "$TEMP_DIR/paru"; then
+if ! git clone https://aur.archlinux.org/paru.git "$TEMP_DIR/paru"; then
   printf "${ERROR} ${WARNING}Failed to clone paru repository${RESET}\n"
   exit 1
 fi
