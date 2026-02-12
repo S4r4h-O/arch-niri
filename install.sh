@@ -40,6 +40,6 @@ execute_script() {
 
 execute_script "paru.sh"
 
-execute_script "utilities.sh"
+# execute_script "utilities.sh"
 
 execute_script "dotfiles.sh"
