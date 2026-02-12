@@ -87,7 +87,7 @@ install_aur_package() {
 
   else
     (
-      stdbuf -oL sudo paru -S --noconfirm "$1" 2>&1
+      stdbuf -oL paru -S --noconfirm "$1" 2>&1
     ) >>"$LOG_FILE" 2>&1 &
     PID=$!
     show_progress $PID "$1"
