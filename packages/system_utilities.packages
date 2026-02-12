@@ -4,6 +4,8 @@ pamixer
 pavucontrol
 dunst
 nvtop
+powertop
+btop
 wl-clipboard
 cliphist
 alsa-utils
@@ -17,7 +19,6 @@ jq
 zsh
 kitty
 tmux
-btop
 fastfetch
 hyfetch
 fd
