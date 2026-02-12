@@ -3,7 +3,7 @@
 TEMP_DIR=$(mktemp -d)
 trap "rm -rf '$TEMP_DIR'" EXIT
 
-if ! git clone https://github.com/S4r4h-O/dotfiles.git "$TEMP_DIR"/dots; then
+if ! git clone https://github.com/S4r4h-O/dotfiles.git "$TEMP_DIR/dots"; then
   printf "${ERROR} ${WARNING}Failed to clone dotfiles repository${RESET}\n"
   exit 1
 fi
@@ -17,10 +17,9 @@ if ! cp -r "$TEMP_DIR/dots/." ~/.config; then
   exit 1
 fi
 
-if cp ~/.config/wallpapers/* ~/Pictures/Wallpapers/; then
+if ! cp ~/.config/wallpapers/* ~/Pictures/Wallpapers/; then
   printf "${ERROR} ${WARNING}Failed to copy wallpapers from ~/.config/wallpapers to ~/Pictures/Wallpapers, copy them manually${RESET}\n"
   # Not breaking the script in order to link the services to niri
-  continue
 fi
 
 # TODO: logs file
