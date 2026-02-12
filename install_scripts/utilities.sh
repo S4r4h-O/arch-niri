@@ -19,6 +19,8 @@ BLUE="$(tput setaf 4)"
 SKY_BLUE="$(tput setaf 6)"
 RESET="$(tput sgr0)"
 
+printf "${INFO} Trying to install some utils${RESET}\n"
+
 # zinit, the zsh plugins manager
 # manual install (described in https://github.com/zdharma-continuum/zinit)
 
