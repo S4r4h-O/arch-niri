@@ -57,7 +57,7 @@ if ! is_installed "base-devel"; then
   }
 fi
 
-TEMP_DIR=$(mktemp -d)
+TEMP_DIR="$HOME/.cache"
 trap "rm -rf '$TEMP_DIR'" EXIT
 
 if ! git clone https://aur.archlinux.org/paru.git "$TEMP_DIR/paru"; then
