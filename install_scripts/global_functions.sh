@@ -19,6 +19,7 @@ SKY_BLUE="$(tput setaf 6)"
 RESET="$(tput sgr0)"
 
 install_logs="$HOME/.local/state/"
+LOG_FILE="$install_logs/logs.txt"
 
 if [[ ! -d install_logs ]]; then
   mkdir -p install_logs
@@ -62,14 +63,14 @@ install_package_pacman() {
     # run pacman in the background, retrieve process ID and redirect logs to a file
     (
       stdbuf -oL sudo pacman -S --noconfirm "$1" 2>&1
-    ) >>"$install_logs/logs.txt" 2>&1 &
+    ) >>"$LOG_FILE" 2>&1 &
     PID=$!
     show_progress $PID "$1"
 
     if pacman -Q "$1" &>/dev/null; then
       printf "${OK} Package ${YELLOW}$1${RESET} has been successfully installed!\n"
     else
-      echo -e "\n${ERROR} ${YELLOW}$1${RESET} failed to install. Please check the $LOG. You may need to install manually.\n"
+      echo -e "\n${ERROR} ${YELLOW}$1${RESET} failed to install. Please check the file $LOG_FILE. You may need to install manually.\n"
     fi
   fi
 }
@@ -86,15 +87,15 @@ install_aur_package() {
 
   else
     (
-      stdbuf sudo paru -S --noconfirm "$1" 2>&1
-    ) >>"$install_logs/logs.txt" 2>&1 &
+      stdbuf -oL sudo paru -S --noconfirm "$1" 2>&1
+    ) >>"$LOG_FILE" 2>&1 &
     PID=$!
     show_progress $PID "$1"
 
     if paru -Q "$1" &>/dev/null; then
       printf "${OK} Package ${YELLOW}$1${RESET} has been successfully installed!\n"
     else
-      echo -e "\n${ERROR} ${YELLOW}$1${RESET} failed to install. Please check the $LOG. You may need to install manually.\n"
+      echo -e "\n${ERROR} ${YELLOW} $1${RESET} failed to install. Please check the $LOG_FILE. You may need to install manually.\n"
     fi
   fi
 }
