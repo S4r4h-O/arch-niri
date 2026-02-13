@@ -8,7 +8,7 @@ set -e
 
 source ./install_scripts/global_functions.sh
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 PACKAGES_DIR="$SCRIPT_DIR/packages"
 INSTALL_SCRIPTS_DIR="$SCRIPT_DIR/install_scripts"
 
@@ -18,7 +18,7 @@ if [[ ! -d "$install_logs" ]]; then
   mkdir -p "$install_logs"
 fi
 
-for pkg_file in ./packages/*.packages; do
+for pkg_file in "$PACKAGES_DIR"/*.packages; do
   read_packages "$pkg_file" | while IFS= read -r pkg; do
     install_package_pacman "$pkg"
   done
