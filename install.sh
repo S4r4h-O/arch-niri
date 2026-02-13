@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # This script assumes that the system is already installed.
 # If you missed some package during the installation it
 # will install it for you.
