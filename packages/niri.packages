@@ -1,5 +1,6 @@
 xdg-desktop-portal-gtk
 xdg-desktop-portal-gnome
+xdg-desktop-portal-wlr
 gnome-keyring
 xwayland-satellite
 xorg-xwayland
