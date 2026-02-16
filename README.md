@@ -8,7 +8,7 @@ Easy pre-install with archinstall:
 archinstall --config-url https://github.com/S4r4h-O/arch-niri/raw/refs/heads/main/user_configuration.json
 ```
 
-## Images:
+## Images
 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/a68e5823-4b58-4f42-ab21-5eae4f9f9d0c" />
 
@@ -25,3 +25,7 @@ archinstall --config-url https://github.com/S4r4h-O/arch-niri/raw/refs/heads/mai
 ## About
 
 I'm continously improving my configs. Feel to suggest if you have any suggestion.
+
+## TODO
+
+- [ ] DS4 setup and driver activation
