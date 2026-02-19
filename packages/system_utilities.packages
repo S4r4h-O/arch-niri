@@ -20,6 +20,8 @@ ncdu
 jq
 zsh
 kitty
+foot
+alacritty
 tmux
 fastfetch
 hyfetch
@@ -33,3 +35,5 @@ bluez-utils
 bluez-tools
 bluetui
 blueman
+ibus
+sshfs
