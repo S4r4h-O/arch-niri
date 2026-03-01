@@ -106,6 +106,7 @@ aur_pkgs=(
 
   # Sys utils
   wlogout
+  grub-btrfs
 )
 
 for pkg in "${aur_pkgs[@]}"; do
