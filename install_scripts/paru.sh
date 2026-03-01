@@ -93,6 +93,8 @@ aur_pkgs=(
   # Themes and fonts
   arc-gtk-theme
   catppuccin-gtk-theme-mocha
+  catppuccin-gtk-theme-macchiato
+  catppuccin-cursors-macchiato
   ttf-twemoji
   ttf-twemoji-color
 
