@@ -29,3 +29,6 @@ I'm continously improving my configs. Feel to suggest if you have any suggestion
 ## TODO
 
 - [ ] DS4 setup and driver activation
+- [ ] gnome-keyring (systemctl, keyring.conf)
+- [ ] tuned-ppd process
+- [ ] timeshift
