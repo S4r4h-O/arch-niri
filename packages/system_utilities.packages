@@ -39,3 +39,7 @@ ibus
 sshfs
 timeshift
 showmethekey
+# helvum
+qpwgraph
+bind
+lshw
