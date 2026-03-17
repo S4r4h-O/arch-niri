@@ -32,3 +32,7 @@ I'm continously improving my configs. Feel to suggest if you have any suggestion
 - [ ] gnome-keyring (systemctl, keyring.conf)
 - [ ] tuned-ppd process
 - [ ] timeshift
+- [ ] set catppuccin theme gtk
+- [ ] download and install catppuccin kvantum theme
+- [ ] vinyl theme
+- [ ] my custom .zshrc
