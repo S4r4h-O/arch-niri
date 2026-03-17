@@ -109,6 +109,12 @@ aur_pkgs=(
   # Sys utils
   wlogout
   grub-btrfs
+  xdg-ninja
+  pam_duress
+
+  # AMD specifics
+  # opencl-amd
+  # rocm-opencl-runtime
 )
 
 for pkg in "${aur_pkgs[@]}"; do
