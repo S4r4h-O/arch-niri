@@ -36,3 +36,4 @@ I'm continously improving my configs. Feel to suggest if you have any suggestion
 - [ ] download and install catppuccin kvantum theme
 - [ ] vinyl theme
 - [ ] my custom .zshrc
+- [ ] Interface scaling factor
