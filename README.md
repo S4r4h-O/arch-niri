@@ -10,17 +10,11 @@ archinstall --config-url https://codeberg.org/saaaraaah/arch-niri/raw/branch/mai
 
 ## Images
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/a68e5823-4b58-4f42-ab21-5eae4f9f9d0c" />
+<img width="1920" height="1080" alt="Screenshot from 2026-06-20 11-34-43" src="https://github.com/user-attachments/assets/ad67a594-21ba-4dfb-be24-4756997eb138" />
 
-<img width="1920" height="1079" alt="image" src="https://github.com/user-attachments/assets/892fe94d-a664-4d61-826c-edfbe63169d6" />
+<img width="1920" height="1080" alt="Screenshot from 2026-06-20 11-34-51" src="https://github.com/user-attachments/assets/4ae0c04a-f34e-4f50-90ba-0de568c319ab" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8e9cf2c1-e4bf-4124-a70c-16bad48e41c5" />
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/050aaca3-6f60-42e0-871f-c3f14857034b" />
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d3f26bdb-c48b-4150-9397-ab8d23030790" />
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6020b7f8-149f-4cf9-ae91-4d53a4e048cd" />
+<img width="1920" height="1080" alt="Screenshot from 2026-06-20 11-40-51" src="https://github.com/user-attachments/assets/5220e1c1-6d55-43dc-9d09-0cc917cb88ae" />
 
 ## About
 
